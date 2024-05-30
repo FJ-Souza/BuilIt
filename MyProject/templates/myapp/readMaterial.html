@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Titulo da Página</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+  {%if item.path%}
+  <img src="{{item.path.url}}" alt="item.name" width="200px" height="200px">
+  {%endif%}
+  <br>
+  <strong>Nome:</strong>{{item.nome}}
+  <br>
+  <strong>Valor:</strong>{{item.valor}}
+  <a href="{% url 'editar_item' item.id %}" class="btn btn-warning">Editar</a>
+  <a href="{% url 'deletar_item' item.id %}" class="btn btn-danger">Deletar</a>
+</div>  
+  {% include 'partials/_footer.html' %}
+     
+{% endblock %}
